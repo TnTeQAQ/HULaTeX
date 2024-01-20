@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>HULaTex</title>
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
 </head>
 <body>
+    <div class="alert-error" id="alert_error">test</div>
+    <div class="left-box">
+        <div class="settings">
+            字体大小：
+            <input class="input-text-size" type="text" id="input_text_size" />
+            <a href="http://127.0.0.1:5000/static/temp/lastchange.tex" download="lastchange.tex">保存tex文件</a>
+            <a href="http://127.0.0.1:5000/static/temp/temp.pdf" download="temp.pdf">保存pdf文件</a>
+        </div>
 
+        <div class="input-box" id="input_box">
+            <textarea type="text" class="input-text" id="input_text" ></textarea>
+        </div>
+    </div>
+
+    <div class="view-box" id="view_box">
+        <embed src="{{ url_for('static',filename='temp/temp.pdf') }}" type="application/pdf" id="pdf_view">
+    </div>
 </body>
 </html>
